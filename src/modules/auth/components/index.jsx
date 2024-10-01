@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import icon from "../../assets/img/icon.png"; // Ruta relativa
+import icon from "@/public/img/icon.png"; // Ruta relativa
 import ComponentLogin from "./login";
 import { useState } from "react";
 import ComponentRegister from "./register";
@@ -15,7 +15,7 @@ export default function PageLogin() {
             <div className="flex justify-center items-center text-center">
               <Image
                 src={icon}
-                alt="Picture of the author"
+                alt="Attenzio's Logo"
                 width={200}
                 height={200}
               />
