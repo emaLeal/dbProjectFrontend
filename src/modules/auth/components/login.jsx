@@ -6,7 +6,7 @@ import { login } from "../actions/actions";
 export default function ComponentLogin({ setlogin }) {
   return (
     <>
-      <form action={login} className="m-4">
+      <form action={login} method="post" className="m-4">
         <div className="relative mb-4 w-full max-w-xs">
           <input
             type="text"
