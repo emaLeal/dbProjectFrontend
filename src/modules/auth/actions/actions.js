@@ -2,6 +2,7 @@
 
 import { cookies } from "next/headers";
 import { endpoints } from "./urls";
+import { redirect } from "next/navigation";
 
 /**
  *
@@ -22,7 +23,6 @@ export async function login(formData) {
       },
     });
     if (res.ok) {
-      console.log(res);
       const cookieManager = cookies();
       const json = await res.json();
       cookieManager.set("access", json.access);
@@ -31,5 +31,7 @@ export async function login(formData) {
     throw res;
   } catch (error) {
     console.log(error);
+  } finally {
+    redirect("/");
   }
 }

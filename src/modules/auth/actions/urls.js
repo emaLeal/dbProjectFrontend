@@ -1,4 +1,5 @@
 const host = process.env.BASE_URL;
+
 const authBase = "/api/auth";
 
 export const endpoints = {
