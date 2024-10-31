@@ -7,6 +7,7 @@ import NavTopComponent from "./navTop";
 export default function LayoutComponent({ children }) {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
 
+
   return (
     <>
       <div className="flex h-screen">
