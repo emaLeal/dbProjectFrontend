@@ -1,29 +1,32 @@
+import Link from "next/link";
 import {
   FaArrowLeft,
   FaFileDownload,
   FaFileSignature,
+  FaHome,
   FaMeh,
 } from "react-icons/fa";
-import { FaSchool, FaUser } from "react-icons/fa6";
+import { FaSchool, FaUser, FaUserGear } from "react-icons/fa6";
 
 export default function NavComponent({ isSidebarVisible, setSidebarVisible }) {
   const sections = [
-    { name: "Cursos", route: "", iconComponent: <FaSchool /> },
-    { name: "Inscripciones", route: "", iconComponent: <FaFileSignature /> },
-    { name: "Reportes", route: "", iconComponent: <FaFileDownload /> },
+    { name: "Home", route: "", iconComponent: <FaHome /> },
+    { name: "Clases", route: "course", iconComponent: <FaSchool /> },
+    { name: "Inscripciones", route: "course", iconComponent: <FaFileSignature /> },
+    { name: "Reportes", route: "course", iconComponent: <FaFileDownload /> },
   ];
 
   const adminSections = [
     { name: "Usuarios", route: "", iconComponent: <FaUser /> },
-    { name: "Home", route: "", iconComponent: <FaMeh /> },
+    { name: "Roles", route: "", iconComponent: <FaUserGear /> },
+
   ];
 
   return (
     <>
       <aside
-        className={`${
-          isSidebarVisible ? "hidden" : "block fixed inset-0 z-50"
-        } w-64 md:block bg-orange-500 text-white p-4`}
+        className={`${isSidebarVisible ? "hidden" : "block fixed inset-0 z-50"
+          } w-64 md:block bg-orange-500 text-white p-4`}
       >
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-bold">TailAdmin</h1>
@@ -41,10 +44,14 @@ export default function NavComponent({ isSidebarVisible, setSidebarVisible }) {
               {sections.map((section, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-2 text-lg font-semibold hover:bg-orange-600 hover:text-orange-200 p-2 rounded-md transition-all"
+                  className=" rounded-md transition-all"
                 >
+                  <Link href={`/dashboard/${section.route}`}>
+                  <p className="flex items-center gap-2 text-lg font-semibold cursor-pointer hover:bg-orange-600 hover:text-orange-200 p-2  rounded-md">
                   {section.iconComponent}
                   {section.name}
+                  </p>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -55,7 +62,7 @@ export default function NavComponent({ isSidebarVisible, setSidebarVisible }) {
               {adminSections.map((section, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-2 text-lg font-semibold hover:bg-orange-600 hover:text-orange-200 p-2 rounded-md transition-all"
+                  className="flex cursor-pointer items-center gap-2 text-lg font-semibold hover:bg-orange-600 hover:text-orange-200 p-2 rounded-md transition-all"
                 >
                   {section.iconComponent}
                   {section.name}
