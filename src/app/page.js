@@ -24,7 +24,7 @@ export default function Home() {
         <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
           <Image src={icon} alt="Attenzio Logo" width={80} height={90} />
         </div>
-        <h1 className={styles.title}>BIENVENIDO A ATTENZIO</h1>
+        <h1 className={styles.title}>BIENVENIDO A  ATTENZIO</h1>
         <Link href="/login">
           <button className={styles.botonEntrar}>Entrar</button>
         </Link>
@@ -60,15 +60,15 @@ export default function Home() {
             <p>Una plataforma para el control de asistencia</p>
             <p>y atención a clase usando la dupla Geolocation</p>
             <p>+ Código QR</p>
+            </div>
+            <Image
+              src={idea2}
+              alt="idea2"
+              width={170}
+              height={180}
+              className=""
+            />
           </div>
-          <Image
-            src={idea2}
-            alt="idea2"
-            width={170}
-            height={180}
-            className=""
-          />
-        </div>
       </section>
 
       {/* Línea separadora con texto "softwares" */}
