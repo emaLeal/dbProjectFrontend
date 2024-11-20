@@ -5,9 +5,9 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-
 # testing
 /coverage
+.babelrc
 
 # next.js
 /.next/

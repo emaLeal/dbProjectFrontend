@@ -17,7 +17,7 @@ export async function verify(cookies) {
     method: "POST",
     body: JSON.stringify({ token: cookies }),
   });
-  console.log(res);
+
   if (res.ok) {
     return true;
   }
@@ -52,7 +52,7 @@ export async function refresh(refreshToken) {
 export async function middleware(request) {
   const cookieManager = cookies();
   const access = cookieManager.get("access");
-  const verifySession = access && await verify(access.value);
+  const verifySession = access && (await verify(access.value));
   if (!verifySession) {
     const refreshToken = cookieManager.get("refresh");
     if (!refreshToken) {
@@ -67,5 +67,4 @@ export async function middleware(request) {
 // See "Matching Paths" below to learn more
 export const config = {
   matcher: ["/dashboard"],
-
 };
